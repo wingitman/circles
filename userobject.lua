@@ -31,7 +31,7 @@ end
 ------------------------------------------------------------
 function UserObject:addFriend(friendId)
 	self.orbits[friendId] = {
-		angle = math.random() * math.pi * 2,
+		angle = math.random(-200, 200) / 100 * math.pi * 2,
 	}
 end
 
