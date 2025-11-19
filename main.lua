@@ -19,7 +19,9 @@ function love.load()
 
 	DB.addFriend(alice, bob)
 	DB.addFriend(alice, cara)
+	DB.addFriend(alice, dan)
 	DB.addFriend(bob, dan)
+	DB.addFriend(bob, erin)
 	DB.addFriend(cara, erin)
 
 	-- build user objects
@@ -29,6 +31,24 @@ end
 
 ------------------------------------------------------------
 
+function love.keypressed(key, scancode, isrepeat)
+	if key == "s" then
+		print("keypress", key, scancode, isrepeat)
+		local ui = 0
+		for i, v in ipairs(users) do
+			if v.id == activeUser.id then
+				ui = i
+				break
+			end
+		end
+		if ui > #users - 1 then
+			ui = 0
+		end
+		ui = ui + 1
+		print("chang active user from ", activeUser.name, "to", users[ui].name)
+		activeUser = users[ui]
+	end
+end
 function love.update(dt)
 	Input.update(dt, activeUser)
 

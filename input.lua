@@ -1,6 +1,6 @@
 local Input = {}
 
-function Input.update(dt, activeUser)
+function Input.update(dt, activeUser, users)
 	if not activeUser then
 		return
 	end
@@ -22,7 +22,7 @@ function Input.mousePressed(x, y, users, camera)
 	local wx = x + camera.x - love.graphics.getWidth() / 2
 	local wy = y + camera.y - love.graphics.getHeight() / 2
 
-	local best, dist = nil, 25
+	local best, dist = nil, 5
 
 	for _, U in pairs(users) do
 		local dx = wx - U.x

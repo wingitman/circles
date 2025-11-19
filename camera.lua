@@ -15,7 +15,9 @@ end
 
 function Camera.apply()
 	love.graphics.push()
-	love.graphics.translate(love.graphics.getWidth() / 2 - Camera.x, love.graphics.getHeight() / 2 - Camera.y)
+	local x = love.graphics.getWidth() / 4 - Camera.x
+	local y = love.graphics.getHeight() / 4 - Camera.y
+	love.graphics.translate(x, y)
 end
 
 function Camera.clear()
